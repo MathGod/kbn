@@ -22,5 +22,19 @@
 <script type="text/javascript">
     loadlive2d("live2d", "live2d/model/tia/model.json");
 </script>
+	<SCRIPT LANGUAGE="JavaScript">   
+function isChrome360() {  
+ if( navigator.userAgent.toLowerCase().indexOf('chrome') > -1 ) {  
+       var desc = navigator.mimeTypes['application/x-shockwave-flash'].description.toLowerCase();  
+       if (desc.indexOf('adobe') > -1) {  
+       alert("禁止使用360浏览器！请使用IE8或者Google浏览器，页面即将关闭！")  
+           window.close();  
+           return true;             
+       }  
+   }  
+   return false;  
+  }  
+   alert(isChrome360());  
+</script>  
 </body>
 </html>
