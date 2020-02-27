@@ -6,35 +6,32 @@
 <link rel="stylesheet" href="live2d/css/live2d.css">
 </head>
 <body>
-		<script type="text/javascript" src="jquery.min.js"></script>
-	    <div id="landlord">
-    <div class="message" style="opacity:0"></div>
-    <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
-    <div class="hide-button">隐藏</div>
-</div>
-<script type="text/javascript">
-    var message_Path = 'https://mathgod.github.io/kbn/live2d/'
-    var home_Path = 'https://mathgod.github.io/kbn/'  //此处修改为你的域名，必须带斜杠
-    var live2d_Dress = 'https://acg.sx/textures/pio?394b29aa';
-</script>
-<script type="text/javascript" src="live2d/js/live2d.js"></script>
-<script type="text/javascript" src="live2d/js/message.js"></script>
-<script type="text/javascript">
-    loadlive2d("live2d", "live2d/model/tia/model.json");
-</script>
-	<SCRIPT LANGUAGE="JavaScript">   
-function isChrome360() {  
- if( navigator.userAgent.toLowerCase().indexOf('chrome') > -1 ) {  
-       var desc = navigator.mimeTypes['application/x-shockwave-flash'].description.toLowerCase();  
-       if (desc.indexOf('adobe') > -1) {  
-       alert("禁止使用360浏览器！请使用IE8或者Google浏览器，页面即将关闭！")  
-           window.close();  
-           return true;             
-       }  
-   }  
-   return false;  
-  }  
-   alert(isChrome360());  
-</script>  
+		    <script>
+10         window.onload = function () {
+11             
+12             //application/vnd.chromium.remoting-viewer 可能为360特有
+13             var is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
+14             
+15             if (isChrome() && is360) { 
+16                 alert("检测到是360浏览器");
+17             }
+18         }
+19         //检测是否是谷歌内核(可排除360及谷歌以外的浏览器)
+20         function isChrome(){
+21             var ua = navigator.userAgent.toLowerCase();
+22 
+23             return ua.indexOf("chrome") > 1;
+24         }
+25         //测试mime
+26         function _mime(option, value) {
+27             var mimeTypes = navigator.mimeTypes;
+28             for (var mt in mimeTypes) {
+29                 if (mimeTypes[mt][option] == value) {
+30                     return true;
+31                 }
+32             }
+33             return false;
+34         }
+35     </script>
 </body>
 </html>
